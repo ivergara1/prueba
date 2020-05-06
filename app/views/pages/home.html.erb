@@ -1,0 +1,9 @@
+<h1>Página de Inicio</h1>
+<% if current_user %>
+    <p> Hola, <%= current_user.email %> </p>
+    <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %>
+<% else %>
+    <p> No estás conectado </p>
+    <%= link_to 'Ingresar', new_user_session_path%>
+    <%= link_to 'Registrarse', new_user_registration_path%>
+<% end %> 
