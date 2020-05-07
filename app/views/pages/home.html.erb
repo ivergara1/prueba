@@ -2,8 +2,12 @@
 <% if current_user %>
     <p> Hola, <%= current_user.email %> </p>
     <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %>
+<% elsif current_admin %>
+    <p> Hola, <%= current_admin.username %> </p>
+    <%= link_to 'Cerrar Sesión', destroy_admin_session_path, method: :delete %>
 <% else %>
     <p> No estás conectado </p>
     <%= link_to 'Ingresar', new_user_session_path%>
     <%= link_to 'Registrarse', new_user_registration_path%>
+    <%= link_to 'Registrarse como admin', new_admin_registration_path%>
 <% end %> 
